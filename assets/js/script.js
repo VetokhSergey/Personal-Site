@@ -5,6 +5,7 @@ const modalBackground = document.querySelector('.img_background');
 const closeBtn = document.querySelector('.close_btn');
 
 
+
 window.addEventListener('scroll', (e) => {
     let scrollPos = window.scrollY;
     if (scrollPos > 0) {
@@ -14,9 +15,18 @@ window.addEventListener('scroll', (e) => {
     }
 });
 
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 1200){
+        photomodal.style.display = 'none';
+    document.body.style.overflow = 'visible';
+    }
+});
+
 imgTrigger.addEventListener('click', () => {
-    photomodal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    if (window.innerWidth >= 1200){
+        photomodal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
 });
 
 modalBackground.addEventListener('click', () => {
