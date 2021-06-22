@@ -4,7 +4,15 @@ const imgTrigger = document.querySelector('.trigger');
 const modalBackground = document.querySelector('.img_background');
 const closeBtn = document.querySelector('.close_btn');
 
+function hidePhoto () {
+    photomodal.style.display = 'none';
+    document.body.style.overflow = 'visible';
+};
 
+function showPhoto () {
+    photomodal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+};
 
 window.addEventListener('scroll', (e) => {
     let scrollPos = window.scrollY;
@@ -17,26 +25,22 @@ window.addEventListener('scroll', (e) => {
 
 window.addEventListener('resize', () => {
     if (window.innerWidth <= 1200){
-        photomodal.style.display = 'none';
-    document.body.style.overflow = 'visible';
+        hidePhoto();
     }
 });
 
 imgTrigger.addEventListener('click', () => {
     if (window.innerWidth >= 1200){
-        photomodal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        showPhoto();
     }
 });
 
 modalBackground.addEventListener('click', () => {
-    photomodal.style.display = 'none';
-    document.body.style.overflow = 'visible';
+    hidePhoto();
 });
 
 closeBtn.addEventListener('click', () => {
-    photomodal.style.display = 'none';
-    document.body.style.overflow = 'visible';
+    hidePhoto();
 });
 
 const anchors = document.querySelectorAll('a[href*="#"]')
@@ -51,5 +55,5 @@ for (let anchor of anchors) {
             behavior: 'smooth',
             block: 'start'
         })
-    })
-}
+    });
+};
