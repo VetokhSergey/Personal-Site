@@ -12,6 +12,7 @@ function hidePhoto () {
 function showPhoto () {
     photomodal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    navBar.style.display = 'none';
 };
 
 window.addEventListener('scroll', (e) => {
